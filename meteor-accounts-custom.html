@@ -1,0 +1,33 @@
+<head>
+  <title>meteor - persona</title>
+  <script>
+    (function() {
+      var t   = document.createElement('script');
+      t.type  = 'text/javascript';
+      t.async = true;
+      t.id    = 'persona-lib';
+      t.src = '//login.persona.org/include.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+    })();
+  </script>
+</head>
+
+<body>
+  <h1>meteor - persona</h1>
+
+  {{> usuario}}
+</body>
+
+<template name="usuario">
+
+  {{! descomentar para utilizar loginButtons}}
+
+  {{#if currentUser}}
+    usuario logeado: {{currentUser._id}} {{currentUser.profile.email}} <br/>
+    <input type="button" class="logout" value="Salir" />
+  {{else}}
+    <input type="button" class="login" value="Login con email" />
+  {{/if}}
+
+</template>
